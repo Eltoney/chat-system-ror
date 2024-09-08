@@ -1,0 +1,185 @@
+{
+  "info": {
+    "name": "Chat System API",
+    "description": "Collection for Chat System API with default values and seeding",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "item": [
+    {
+      "name": "Create Application",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json",
+            "type": "text"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n    \"application\": {\n        \"name\": \"MyChatApp\"\n    }\n}"
+        },
+        "url": {
+          "raw": "http://localhost:3000/applications",
+          "protocol": "http",
+          "host": ["localhost"],
+          "port": "3000",
+          "path": ["applications"]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Get Application by Token",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "http://localhost:3000/applications/{{application_token}}",
+          "protocol": "http",
+          "host": ["localhost"],
+          "port": "3000",
+          "path": ["applications", "{{application_token}}"]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Create Chat for Application",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json",
+            "type": "text"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{}"
+        },
+        "url": {
+          "raw": "http://localhost:3000/applications/{{application_token}}/chats",
+          "protocol": "http",
+          "host": ["localhost"],
+          "port": "3000",
+          "path": ["applications", "{{application_token}}", "chats"]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Get Chats for Application",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "http://localhost:3000/applications/{{application_token}}/chats",
+          "protocol": "http",
+          "host": ["localhost"],
+          "port": "3000",
+          "path": ["applications", "{{application_token}}", "chats"]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Create Message for Chat",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json",
+            "type": "text"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n    \"message\": {\n        \"body\": \"Hello, World!\"\n    }\n}"
+        },
+        "url": {
+          "raw": "http://localhost:3000/applications/{{application_token}}/chats/{{chat_number}}/messages",
+          "protocol": "http",
+          "host": ["localhost"],
+          "port": "3000",
+          "path": [
+            "applications",
+            "{{application_token}}",
+            "chats",
+            "{{chat_number}}",
+            "messages"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Get All Messages in a Chat",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "http://localhost:3000/applications/{{application_token}}/chats/{{chat_number}}/messages",
+          "protocol": "http",
+          "host": ["localhost"],
+          "port": "3000",
+          "path": [
+            "applications",
+            "{{application_token}}",
+            "chats",
+            "{{chat_number}}",
+            "messages"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Search Messages in a Chat",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "http://localhost:3000/applications/{{application_token}}/chats/{{chat_number}}/messages/search?query=Hello",
+          "protocol": "http",
+          "host": ["localhost"],
+          "port": "3000",
+          "path": [
+            "applications",
+            "{{application_token}}",
+            "chats",
+            "{{chat_number}}",
+            "messages",
+            "search"
+          ],
+          "query": [
+            {
+              "key": "query",
+              "value": "Hello"
+            }
+          ]
+        }
+      },
+      "response": []
+    }
+  ],
+  "event": [
+    {
+      "listen": "prerequest",
+      "script": {
+        "type": "text/javascript",
+        "exec": []
+      }
+    },
+    {
+      "listen": "test",
+      "script": {
+        "type": "text/javascript",
+        "exec": []
+      }
+    }
+  ]
+}
